@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Validform验证</title>
+  <link rel="stylesheet" type="text/css" href="./datePicker/datePicker.css" media="all">
+  <link rel="stylesheet" type="text/css" href="http://validform.rjboy.cn/demo/css/demo.css" media="all">
+  <style type="text/css">
+    /*Validform_checktip Validform_wrong*/
+    .Validform_right{
+      color:green;
+    }
+    .Validform_wrong{
+      color:red;
+    }
+  </style>
+    <script src="../jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="./validform_v5.3.2.js" type="text/javascript"></script>
+    <script type="text/javascript" src="./datePicker/jquery.datePicker.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#myform").Validform({ tiptype:3 });
+      });
+    </script>
+</head>
+<body>
+<form class="cmxform" id="myform" method="get" action="">
+<div>
+  <!-- 用户名 -->
+  <span class="Validform_label">*用户名：</span>
+  <input type="text" value="" name="name" class="inputxt" tip="默认提示文字" altercss="gray"  datatype="s6-18" errormsg="昵称至少6个字符,最多18个字符！" />
+  <div class="Validform_checktip">昵称为6~18个字符</div>
+</div>
+<div>
+  <!--密码-->
+  <input type="password" nullmsg="请填写密码！" value="" name="userpassword" datatype="*6-15" errormsg="密码范围在6~15位之间！" />
+  <!--确认密码-->
+  <input type="password" value="" name="userpassword2" datatype="*" recheck="userpassword" errormsg="您两次输入的账号密码不一致！" />
+  <div class="Validform_checktip">输入密码</div>
+</div>
+<!--默认提示文字-->
+<textarea tip="请在这里输入您的意见。" errormsg="很感谢您花费宝贵时间给我们提供反馈，请填写有效内容！"  datatype="s" altercss="gray" class="gray" name="msg" value="">请在这里输入您的意见。</textarea>
+<div class="Validform_checktip">您的意见</div>
+<div>
+  <!--使用DatePicker插件-->
+  <input type="text" plugin="datepicker" class="inputxt" name="birthday" value="">
+  <div class="Validform_checktip">输入日期</div>
+</div>
+
+</form>
+</body>
+</html>
